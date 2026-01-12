@@ -1,10 +1,12 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
-  </title>
-  <meta name="description" content="{{ site.description | default: site.title }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-title">{{ site.title }}</div>
+    <div class="brand-sub">{{ site.description }}</div>
+  </div>
 
+  <nav class="nav">
+    <a href="{{ '/' | relative_url }}">Início</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a href="{{ '/edicoes/' | relative_url }}">Arquivo de Edições</a>
+  </nav>
+</header>
