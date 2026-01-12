@@ -1,0 +1,16 @@
+:root { --max: 980px; --pad: 18px; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; line-height: 1.55; }
+a { color: inherit; }
+.container { max-width: var(--max); margin: 0 auto; padding: 24px var(--pad); }
+
+.site-header { border-bottom: 1px solid #e6e6e6; padding: 18px var(--pad); }
+.brand-title { font-weight: 800; letter-spacing: 0.04em; }
+.brand-sub, .brand-issn { opacity: .8; font-size: 0.95rem; }
+.nav { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; }
+.nav a { text-decoration: none; padding: 6px 8px; border-radius: 8px; }
+.nav a:hover { background: #f2f2f2; }
+
+.card { border: 1px solid #e6e6e6; border-radius: 14px; padding: 16px; margin: 14px 0; }
+.muted { opacity: .75; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }

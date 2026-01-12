@@ -1,0 +1,21 @@
+title: "O Leitor"
+description: "Informativo literário mensal — Ler para crescer."
+url: "https://SEU-USUARIO.github.io"
+baseurl: "/oleitor-site" # se publicar em subpasta; se for repo do tipo USER/ORG, deixe vazio ""
+
+markdown: kramdown
+permalink: pretty
+
+collections:
+  biografias:
+    output: true
+    permalink: /biografia/:name/
+  edicoes:
+    output: true
+    permalink: /edicao/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
