@@ -14,33 +14,22 @@ site_url: https://prof-valderi.github.io/oleitor-site
 display_url: https://prof-valderi.github.io/oleitor-site
 
 collections:
-  - name: "posts"
-    label: "Posts do Blog"
-    file: "posts/posts.json"
-    format: "json"
-    extension: "json"
-    editor:
-      preview: false
-    fields:
-      - label: "Posts"
-        name: "posts"
-        widget: "list"
-        summary: "{{fields.titulo}} — {{fields.data}}"
+  - name: "conteudo"
+    label: "Conteúdo"
+    files:
+      - name: "posts"
+        label: "Posts do Blog"
+        file: "posts/posts.json"
+        format: "json"
+        editor:
+          preview: false
         fields:
-          - label: "Título"
-            name: "titulo"
-            widget: "string"
-
-          - label: "Data"
-            name: "data"
-            widget: "datetime"
-            format: "YYYY-MM-DD"
-            time_format: false
-
-          - label: "Resumo"
-            name: "resumo"
-            widget: "string"
-
-          - label: "Conteúdo"
-            name: "conteudo"
-            widget: "text"
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.titulo}} — {{fields.data}}"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Data", name: "data", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+              - { label: "Resumo", name: "resumo", widget: "string" }
+              - { label: "Conteúdo", name: "conteudo", widget: "text" }
