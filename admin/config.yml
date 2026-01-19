@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: SEU_USUARIO/SEU_REPO
+  branch: main
+  base_url: https://decap-oauth-proxy.vercel.app
+  auth_endpoint: /api/auth
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts do Blog"
+    file: "posts/posts.json"
+    format: "json"
+    extension: "json"
+    editor:
+      preview: false
+    fields:
+      - label: "Posts"
+        name: "posts"
+        widget: "list"
+        summary: "{{fields.titulo}} ({{fields.data}})"
+        fields:
+          - { label: "Título", name: "titulo", widget: "string" }
+          - { label: "Data", name: "data", widget: "datetime", format: "YYYY-MM-DD" }
+          - { label: "Resumo", name: "resumo", widget: "string" }
+          - { label: "Conteúdo", name: "conteudo", widget: "text" }

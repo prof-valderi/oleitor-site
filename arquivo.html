@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O Leitor · Arquivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+          <div class="logo-box" aria-label="Logotipo O Leitor">
+            <img 
+              src="images/Brasao1_sem_fundo.jpg"
+              alt="Brasão do informativo O Leitor"
+              class="logo-img"
+            >
+          </div>
+
+          <div class="brand-title">
+            <strong id="siteName">O LEITOR</strong>
+            <small id="siteSub">Informativo Literário</small>
+          </div>
+        </div>
+        <div class="badges">
+          <span class="badge" id="siteISSN">ISSN 2965-3169</span>
+          <span class="badge">Arquivo 2025</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a data-nav href="index.html">Início</a>
+        <a data-nav href="edicao-atual.html">Edição Atual</a>
+        <a data-nav href="arquivo.html">Arquivo</a>
+        <a data-nav href="patrono.html">O Patrono</a>
+        <a data-nav href="blog.html">Blog</a>
+        <a data-nav href="expediente.html">Expediente</a>
+        <a data-nav href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="arquivoBox"></div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>Como funciona o download</h3>
+      <p class="muted">
+        Os links “Baixar” usam o atributo <code>download</code>. Em muitos navegadores isso abre “Salvar como…”.
+        Em outros, o arquivo baixa direto na pasta padrão de downloads.
+      </p>
+    </div>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> O Leitor — <span class="muted">ISSN 2965-3169</span></div>
+    </footer>
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
