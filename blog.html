@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>O Leitor · Blog</title>
+
+  <!-- Fonte Marcellus SC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap" rel="stylesheet">
@@ -11,65 +13,104 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="brand">
-        <div class="brand-left">
-          <div class="logo-box" aria-label="Logotipo O Leitor">
-            <img 
-              src="images/Brasao1_sem_fundo.jpg"
-              alt="Brasão do informativo O Leitor"
-              class="logo-img"
-            >
-          </div>
 
-          <div class="brand-title">
-            <strong id="siteName">O LEITOR</strong>
-            <small id="siteSub">Informativo Literário</small>
-          </div>
+<header class="header">
+  <div class="container">
+    <div class="brand">
+      <div class="brand-left">
+        <div class="logo-box">
+          <img src="images/Brasao1_sem_fundo.png" alt="Brasão O Leitor" class="logo-img">
         </div>
-        <div class="badges">
-          <span class="badge" id="siteISSN">ISSN 2965-3169</span>
-          <span class="badge">Postagens</span>
+        <div class="brand-title">
+          <strong>O LEITOR</strong>
+          <small>Informativo Literário</small>
         </div>
       </div>
-
-      <nav class="nav">
-        <a data-nav href="index.html">Início</a>
-        <a data-nav href="edicao-atual.html">Edição Atual</a>
-        <a data-nav href="arquivo.html">Arquivo</a>
-        <a data-nav href="patrono.html">O Patrono</a>
-        <a data-nav href="blog.html">Blog</a>
-        <a data-nav href="expediente.html">Expediente</a>
-        <a data-nav href="contato.html">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section>
-    <div class="card">
-        <h2>Lista de posts</h2>
-        <p class="muted">Clique em um post para abrir.</p>
-        <div id="blogList" class="list"></div>
-    </div>
-    </section>
-
-
-    <div class="card" style="margin-top:14px">
-      <h3>Como adicionar um post</h3>
-      <p class="muted">
-        Edite <code>assets/js/data.js</code> e inclua um novo item no array <code>blog</code>.
-      </p>
+      <div class="badges">
+        <span class="badge">ISSN 2965-3169</span>
+      </div>
     </div>
 
-    <footer class="footer">
-      <div>© <span id="year"></span> O Leitor — <span class="muted">ISSN 2965-3169</span></div>
-    </footer>
-  </main>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="edicao-atual.html">Edição Atual</a>
+      <a href="arquivo.html">Arquivo</a>
+      <a href="patrono.html">O Patrono</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="expediente.html">Expediente</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
 
-  <script src="assets/js/data.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<main class="container">
+
+  <!-- Título da página -->
+  <section class="hero">
+    <h1 class="hero-title">Blog</h1>
+    <p class="muted">
+      Artigos, notas editoriais e reflexões literárias publicadas ocasionalmente.
+    </p>
+  </section>
+
+  <!-- Lista de posts -->
+  <section class="list">
+
+    <!-- POST EXEMPLO -->
+    <article class="item">
+      <div class="left">
+        <strong>
+          <a href="posts/laszlo-krasznahorkai-nobel-2025.html">
+            László Krasznahorkai vence o Nobel de Literatura de 2025
+          </a>
+        </strong>
+        <span class="muted">
+          09 de outubro de 2025 · Redação O Leitor
+        </span>
+        <span class="muted">
+          Uma leitura sobre <em>Sátántangó</em> e a prosa labiríntica de um dos maiores nomes da literatura europeia contemporânea.
+        </span>
+      </div>
+      <div class="right">
+        <a class="pill primary" href="posts/laszlo-krasznahorkai-nobel-2025.html">
+          Ler
+        </a>
+      </div>
+    </article>
+
+    <!-- EXEMPLO PARA POSTS FUTUROS (copiar este bloco) -->
+    <!--
+    <article class="item">
+      <div class="left">
+        <strong>
+          <a href="posts/titulo-do-post.html">
+            Título do post
+          </a>
+        </strong>
+        <span class="muted">
+          DD de mês de AAAA · Autor
+        </span>
+        <span class="muted">
+          Pequeno resumo ou linha de apoio do texto.
+        </span>
+      </div>
+      <div class="right">
+        <a class="pill primary" href="posts/titulo-do-post.html">
+          Ler
+        </a>
+      </div>
+    </article>
+    -->
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © 2026 O Leitor — ISSN 2965-3169
+  </div>
+</footer>
+
 </body>
 </html>
