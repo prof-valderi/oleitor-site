@@ -1,12 +1,17 @@
 backend:
   name: github
-  repo: SEU_USUARIO/SEU_REPO
+  repo: prof-valderi/oleitor-site
   branch: main
   base_url: https://decap-oauth-proxy.vercel.app
   auth_endpoint: /api/auth
 
+publish_mode: editorial_workflow
+
 media_folder: "images/uploads"
 public_folder: "images/uploads"
+
+site_url: https://prof-valderi.github.io/oleitor-site
+display_url: https://prof-valderi.github.io/oleitor-site
 
 collections:
   - name: "posts"
@@ -20,9 +25,22 @@ collections:
       - label: "Posts"
         name: "posts"
         widget: "list"
-        summary: "{{fields.titulo}} ({{fields.data}})"
+        summary: "{{fields.titulo}} — {{fields.data}}"
         fields:
-          - { label: "Título", name: "titulo", widget: "string" }
-          - { label: "Data", name: "data", widget: "datetime", format: "YYYY-MM-DD" }
-          - { label: "Resumo", name: "resumo", widget: "string" }
-          - { label: "Conteúdo", name: "conteudo", widget: "text" }
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Data"
+            name: "data"
+            widget: "datetime"
+            format: "YYYY-MM-DD"
+            time_format: false
+
+          - label: "Resumo"
+            name: "resumo"
+            widget: "string"
+
+          - label: "Conteúdo"
+            name: "conteudo"
+            widget: "text"
