@@ -19,7 +19,7 @@
     <div class="brand">
       <div class="brand-left">
         <div class="logo-box">
-          <img src="images/Brasao1_sem_fundo.jpg" alt="Brasão O Leitor" class="logo-img">
+          <img src="images/Brasao1_sem_fundo.png" alt="Brasão O Leitor" class="logo-img">
         </div>
         <div class="brand-title">
           <strong>O LEITOR</strong>
@@ -31,7 +31,13 @@
       </div>
     </div>
 
-    <nav class="nav">
+    <!-- Botão do menu (aparece só no celular) -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+      ☰ Menu
+    </button>
+
+    <!-- Nav "desktop + mobile" -->
+    <nav class="nav" id="siteNav">
       <a href="index.html">Início</a>
       <a href="edicao-atual.html">Edição Atual</a>
       <a href="arquivo.html">Arquivo</a>
@@ -45,7 +51,6 @@
 
 <main class="container">
 
-  <!-- Título da página -->
   <section class="hero">
     <h1 class="hero-title">Blog</h1>
     <p class="muted">
@@ -53,56 +58,70 @@
     </p>
   </section>
 
-  <!-- Lista de posts -->
-  <section class="list">
+  <!-- ====== ANO 2025 ====== -->
+  <section class="card">
+    <h2 class="year-title">2025</h2>
+    <p class="muted">Postagens do ano (mais recente primeiro).</p>
+    <hr>
 
-    <!-- POST EXEMPLO -->
-    <article class="item">
-      <div class="left">
-        <strong>
-          <a href="posts/laszlo-krasznahorkai-nobel-2025.html">
-            László Krasznahorkai vence o Nobel de Literatura de 2025
-          </a>
-        </strong>
-        <span class="muted">
-          09 de outubro de 2025 · Redação O Leitor
-        </span>
-        <span class="muted">
-          Uma leitura sobre <em>Sátántangó</em> e a prosa labiríntica de um dos maiores nomes da literatura europeia contemporânea.
-        </span>
-      </div>
-      <div class="right">
-        <a class="pill primary" href="posts/laszlo-krasznahorkai-nobel-2025.html">
-          Ler
-        </a>
-      </div>
-    </article>
+    <div class="list">
 
-    <!-- EXEMPLO PARA POSTS FUTUROS (copiar este bloco) -->
-    <!--
-    <article class="item">
-      <div class="left">
-        <strong>
-          <a href="posts/titulo-do-post.html">
-            Título do post
-          </a>
-        </strong>
-        <span class="muted">
-          DD de mês de AAAA · Autor
-        </span>
-        <span class="muted">
-          Pequeno resumo ou linha de apoio do texto.
-        </span>
-      </div>
-      <div class="right">
-        <a class="pill primary" href="posts/titulo-do-post.html">
-          Ler
-        </a>
-      </div>
-    </article>
-    -->
+      <!-- (mais recente) -->
+      <article class="item">
+        <div class="left">
+          <strong>
+            <a href="posts/laszlo-krasznahorkai-nobel-2025.html">
+              László Krasznahorkai vence o Nobel de Literatura de 2025
+            </a>
+          </strong>
+          <span class="muted">09 de outubro de 2025 · Redação O Leitor</span>
+          <span class="muted">
+            Uma leitura sobre <em>Sátántangó</em> e a prosa labiríntica de um dos maiores nomes da literatura europeia contemporânea.
+          </span>
+        </div>
+        <div class="right">
+          <a class="pill primary" href="posts/laszlo-krasznahorkai-nobel-2025.html">Ler</a>
+        </div>
+      </article>
 
+      <!-- exemplo de post mais antigo no mesmo ano (você duplica este bloco) -->
+      <!--
+      <article class="item">
+        <div class="left">
+          <strong><a href="posts/titulo-do-post.html">Título do post</a></strong>
+          <span class="muted">20 de maio de 2025 · Autor</span>
+          <span class="muted">Resumo curto do post.</span>
+        </div>
+        <div class="right">
+          <a class="pill primary" href="posts/titulo-do-post.html">Ler</a>
+        </div>
+      </article>
+      -->
+
+    </div>
   </section>
+
+  <!-- ====== ANO 2024 (exemplo) ====== -->
+  <!--
+  <section class="card" style="margin-top:14px">
+    <h2 class="year-title">2024</h2>
+    <p class="muted">Postagens do ano (mais recente primeiro).</p>
+    <hr>
+
+    <div class="list">
+      <article class="item">
+        <div class="left">
+          <strong><a href="posts/exemplo-2024.html">Exemplo de post em 2024</a></strong>
+          <span class="muted">15 de novembro de 2024 · Redação O Leitor</span>
+          <span class="muted">Resumo do texto de 2024.</span>
+        </div>
+        <div class="right">
+          <a class="pill primary" href="posts/exemplo-2024.html">Ler</a>
+        </div>
+      </article>
+    </div>
+  </section>
+  -->
 
 </main>
 
@@ -112,6 +131,6 @@
   </div>
 </footer>
 
+<script src="assets/js/nav.js"></script>
 </body>
 </html>
-
