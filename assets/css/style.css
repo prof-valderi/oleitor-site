@@ -322,3 +322,56 @@ hr{border:0;border-top:1px solid var(--line); margin:18px 0}
     letter-spacing: .16em;
   }
 }
+/* ===== Menu recolhível (mobile) ===== */
+
+.nav-toggle{
+  display:none;
+  width:100%;
+  margin: 0 0 12px 0;
+  padding: 10px 12px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,240,220,.05), rgba(0,0,0,.18)),
+    var(--card);
+  color: var(--text);
+  border-radius: 12px;
+  text-align:left;
+  font-family: 'Marcellus SC', serif;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+
+  /* no mobile, o nav vira um bloco (não esticado) */
+  .nav{
+    display:none;                 /* fechado por padrão */
+    flex-direction: column;
+    width:100%;
+    gap: 0;
+    padding: 8px 0 14px 0;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+  }
+
+  .nav.is-open{ display:flex; }  /* abre quando JS adiciona classe */
+
+  .nav a{
+    padding: 12px 6px;
+  }
+
+  .nav a.active::after{
+    left: 0;
+    right: auto;
+    width: 120px;                /* sublinhado mais curto no mobile */
+  }
+}
+
+/* título do ano no blog */
+.year-title{
+  font-family: 'Marcellus SC', serif;
+  letter-spacing: .12em;
+  font-weight: 400;
+  margin: 0;
+}
+
