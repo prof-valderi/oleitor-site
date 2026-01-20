@@ -59,8 +59,31 @@
     </div>
   </header>
 
-  <main class="container">
-    <div id="arquivoBox"></div>
+    <main class="container">
+    
+      <div class="card" style="margin-bottom:14px">
+        <h2 class="year-title">Arquivo de Edições</h2>
+        <p class="muted">Filtre por ano e mês para encontrar rapidamente uma edição.</p>
+    
+        <div class="filters">
+          <label class="filter-field">
+            <span class="muted">Ano</span>
+            <select id="fAno"></select>
+          </label>
+    
+          <label class="filter-field">
+            <span class="muted">Mês</span>
+            <select id="fMes"></select>
+          </label>
+    
+          <button class="pill primary" id="btnLimpar" type="button">Limpar</button>
+        </div>
+      </div>
+    
+      <div id="arquivoBox"></div>
+    
+      <!-- resto da página continua igual... -->
+
 
     <div class="card" style="margin-top:14px">
       <h3>Como funciona o download</h3>
@@ -82,6 +105,7 @@
   <script src="assets/js/nav.js"></script>
 </body>
 </html>
+
 
 
 
