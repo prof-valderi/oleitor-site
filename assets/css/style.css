@@ -375,3 +375,29 @@ hr{border:0;border-top:1px solid var(--line); margin:18px 0}
   margin: 0;
 }
 
+/* Imagens dentro de posts */
+.post-content{
+  max-width: 75ch;
+  margin: 0 auto;
+}
+
+.post-image{
+  margin: 24px auto;
+  text-align: center;
+}
+
+.post-image img{
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.15);
+}
+
+.post-image figcaption{
+  margin-top: 8px;
+  font-size: .9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
