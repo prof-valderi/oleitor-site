@@ -460,3 +460,15 @@ hr{border:0;border-top:1px solid var(--line); margin:18px 0}
 .filters option{
   color: #000; /* melhora leitura em alguns browsers */
 }
+/* ===== Filtro Arquivo: texto branco nos selects ===== */
+
+.filters select{
+  color: var(--text);        /* texto selecionado (branco) */
+}
+
+/* opções do dropdown */
+.filters select option{
+  color: #fff;               /* texto branco */
+  background-color: #2a1d14; /* fundo marrom escuro (combina com o tema) */
+}
+
