@@ -78,7 +78,7 @@ function renderArquivo(){
 
   box.innerHTML = `
     <div class="card">
-      <h2>Arquivo de Edições (2025)</h2>
+      <h2>Arquivo de Edições</h2>
       <p class="muted">
         Clique em <b>Baixar</b> para abrir o diálogo do navegador (Salvar/Download).
       </p>
@@ -196,3 +196,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
   renderExpediente();
   renderContato();
 });
+
