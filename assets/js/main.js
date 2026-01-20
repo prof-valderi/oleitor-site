@@ -197,3 +197,151 @@ document.addEventListener("DOMContentLoaded", ()=>{
   renderContato();
 });
 
+function getArquivoItems(){
+  const d = window.OLEITOR_DATA || {};
+  // tente achar a lista em lugares comuns
+  return Array.isArray(d.arquivo) ? d.arquivo
+       : Array.isArray(d.edicoes) ? d.edicoes
+       : Array.isArray(d.archive) ? d.archive
+       : [];
+}
+
+/**
+ * Extrai ano (YYYY) e mês (1-12) do item, tentando campos comuns.
+ * Ajuste aqui se seu data.js tiver nomes diferentes.
+ */
+function extractYearMonth(item){
+  // 1) campos diretos
+  const ano = item.ano ?? item.year ?? item.ano_publicacao ?? null;
+  const mes = item.mes ?? item.month ?? item.mes_num ?? null;
+
+  // se ano é numérico e mês é numérico
+  if (ano && mes && Number.isFinite(+ano) && Number.isFinite(+mes)){
+    return { y: +ano, m: +mes };
+  }
+
+  // 2) campo tipo "2025-03" ou "2025-03-01"
+  const s = String(item.data ?? item.ym ?? item.ref ?? item.id ?? "");
+  const m1 = s.match(/^(\d{4})-(\d{2})/);
+  if (m1){
+    return { y: +m1[1], m: +m1[2] };
+  }
+
+  // 3) campo mês por nome (ex: "Março/2025")
+  const s2 = String(item.titulo ?? item.label ?? item.nome ?? "");
+  const m2 = s2.match(/(\d{4})/);
+  const y2 = m2 ? +m2[1] : null;
+
+  const monthMap = {
+    "janeiro":1,"fevereiro":2,"março":3,"marco":3,"abril":4,"maio":5,"junho":6,
+    "julho":7,"agosto":8,"setembro":9,"outubro":10,"novembro":11,"dezembro":12
+  };
+  const lower = s2.toLowerCase();
+  const found = Object.keys(monthMap).find(k => lower.includes(k));
+  if (y2 && found){
+    return { y: y2, m: monthMap[found] };
+  }
+
+  return { y: null, m: null };
+}
+
+function monthLabel(m){
+  const nomes = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  return nomes[m-1] || "";
+}
+
+function renderArquivoFiltered(ySel, mSel){
+  const box = document.getElementById("arquivoBox");
+  if(!box) return;
+
+  const items = getArquivoItems()
+    .map(it => {
+      const {y,m} = extractYearMonth(it);
+      return { ...it, __y:y, __m:m };
+    })
+    .filter(it => it.__y && it.__m);
+
+  const filtered = items.filter(it => {
+    const okY = (ySel === "all") ? true : (String(it.__y) === String(ySel));
+    const okM = (mSel === "all") ? true : (String(it.__m) === String(mSel));
+    return okY && okM;
+  });
+
+  // Título (sem "(2025)")
+  const title = `<div class="card">
+      <h1>Arquivo de Edições</h1>
+      <p class="muted">Clique em <b>Baixar</b> para abrir o diálogo do navegador (Salvar/Download).</p>
+    </div>`;
+
+  if(filtered.length === 0){
+    box.innerHTML = title + `<div class="card" style="margin-top:14px"><p class="muted">Nenhuma edição encontrada para o filtro selecionado.</p></div>`;
+    return;
+  }
+
+  // Ordena: mais recente primeiro
+  filtered.sort((a,b) => (b.__y*100+b.__m) - (a.__y*100+a.__m));
+
+  // Render
+  const list = filtered.map(it => {
+    const label = `${monthLabel(it.__m)}/${it.__y}`;
+    const nome = it.nome ?? it.titulo ?? it.arquivo ?? it.file ?? "PDF";
+    const url  = it.url ?? it.pdf ?? it.link ?? it.href ?? "#";
+
+    return `
+      <div class="item">
+        <div class="left">
+          <strong>${label}</strong>
+          <span class="muted">${nome}</span>
+        </div>
+        <div class="right">
+          <a class="pill" href="${url}" target="_blank" rel="noopener noreferrer">Visualizar</a>
+          <a class="pill primary" href="${url}" download>Baixar</a>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  box.innerHTML = title + `<div class="card" style="margin-top:14px"><div class="list">${list}</div></div>`;
+}
+
+function initArquivoFiltro(){
+  const fAno = document.getElementById("fAno");
+  const fMes = document.getElementById("fMes");
+  const btnLimpar = document.getElementById("btnLimpar");
+  const box = document.getElementById("arquivoBox");
+  if(!fAno || !fMes || !box) return;
+
+  const items = getArquivoItems()
+    .map(it => extractYearMonth(it))
+    .filter(x => x.y && x.m);
+
+  const years = Array.from(new Set(items.map(x => x.y))).sort((a,b)=>b-a);
+  const months = Array.from(new Set(items.map(x => x.m))).sort((a,b)=>b-a);
+
+  // popula selects
+  fAno.innerHTML = `<option value="all">Todos</option>` + years.map(y => `<option value="${y}">${y}</option>`).join("");
+  fMes.innerHTML = `<option value="all">Todos</option>` + months.map(m => `<option value="${m}">${monthLabel(m)}</option>`).join("");
+
+  function refresh(){
+    renderArquivoFiltered(fAno.value, fMes.value);
+  }
+
+  fAno.addEventListener("change", refresh);
+  fMes.addEventListener("change", refresh);
+
+  btnLimpar?.addEventListener("click", ()=>{
+    fAno.value = "all";
+    fMes.value = "all";
+    refresh();
+  });
+
+  refresh(); // primeira renderização
+}
+
+// chama apenas na página arquivo
+document.addEventListener("DOMContentLoaded", ()=>{
+  if (document.getElementById("arquivoBox") && document.getElementById("fAno") && document.getElementById("fMes")){
+    initArquivoFiltro();
+  }
+});
+
