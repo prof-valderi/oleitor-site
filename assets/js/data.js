@@ -14,7 +14,7 @@ window.OLEITOR_DATA = {
     pdf: "pdfs/O Leitor n29.pdf"
   },
 
-  // Arquivo de edições (2025)
+  // Arquivo de edições
   edicoes: [
     { mes: "Março",    ano: 2025, pdf: "pdfs/O Leitor n29.pdf" },
     { mes: "Fevereiro", ano: 2025, pdf: "pdfs/O Leitor n28.pdf" },
@@ -82,3 +82,4 @@ window.OLEITOR_DATA = {
     x: "@OLeitorOficial_"
   }
 };
+
