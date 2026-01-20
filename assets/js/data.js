@@ -19,9 +19,6 @@ window.OLEITOR_DATA = {
     { mes: "Março",    ano: 2025, pdf: "pdfs/O Leitor n29.pdf" },
     { mes: "Fevereiro", ano: 2025, pdf: "pdfs/O Leitor n28.pdf" },
     { mes: "Janeiro",  ano: 2025, pdf: "pdfs/O Leitor n27.pdf" },
-  ],
-
-  edicoes: [
     { mes: "Set-Out-Nov",  ano: 2024, pdf: "pdfs/O Leitor n26.pdf" },
     { mes: "Agosto",     ano: 2024, pdf: "pdfs/O Leitor n25.pdf" },
     { mes: "Julho",    ano: 2024, pdf: "pdfs/O Leitor n24.pdf" },
@@ -85,5 +82,6 @@ window.OLEITOR_DATA = {
     x: "@OLeitorOficial_"
   }
 };
+
 
 
