@@ -400,9 +400,3 @@ hr{border:0;border-top:1px solid var(--line); margin:18px 0}
   color: var(--muted);
   font-style: italic;
 }
-
-.badge:hover{
-  border-color: var(--accent);
-  color: var(--text);
-}
-
