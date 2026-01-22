@@ -40,3 +40,9 @@
   document.body.appendChild(s);
 })();
 
+<div class="visit-counter">
+  <img
+    src="https://counter.dev/73609e1b-9816-441a-8489-8b5e8f015ee4.svg"
+    alt="Contador de visitas"
+    loading="lazy">
+</div>
