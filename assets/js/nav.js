@@ -26,22 +26,10 @@
   });
 })();
 
-// ===== Contador de visitas (counter.dev) =====
+// ===== Contador de visitas (Counter.dev + badge visível) =====
 (function () {
-  if (document.getElementById("counter-dev-script")) return;
 
-  const s = document.createElement("script");
-  s.id = "counter-dev-script";
-  s.src = "https://cdn.counter.dev/script.js";
-  s.setAttribute("data-id", "73609e1b-9816-441a-8489-8b5e8f015ee4");
-  s.setAttribute("data-utcoffset", "-3");
-  s.async = true;
-
-  document.body.appendChild(s);
-})();
-
-// ===== Counter.dev (contabilização) =====
-(function () {
+  /* --- Counter.dev (analytics, sem exibição) --- */
   if (!document.getElementById("counter-dev-script")) {
     const s = document.createElement("script");
     s.id = "counter-dev-script";
@@ -52,7 +40,7 @@
     document.body.appendChild(s);
   }
 
-  // ===== Contador visível (SVG) no rodapé =====
+  /* --- Contador VISÍVEL no rodapé (badge SVG) --- */
   const footer = document.querySelector("footer");
   if (!footer) return;
   if (document.getElementById("visit-counter")) return;
@@ -62,11 +50,14 @@
   div.className = "visit-counter";
 
   const img = document.createElement("img");
-  img.src = "https://counter.dev/73609e1b-9816-441a-8489-8b5e8f015ee4.svg";
-  img.alt = "Contador de visitas";
+  img.src =
+    "https://hits.sh/https%3A%2F%2Fwww.oleitor.info.svg" +
+    "?label=visitas&color=8b6b3f&labelColor=2a1c12";
+  img.alt = "Visitas";
   img.loading = "lazy";
 
   div.appendChild(img);
   footer.appendChild(div);
+
 })();
 
