@@ -472,3 +472,18 @@ hr{border:0;border-top:1px solid var(--line); margin:18px 0}
   background-color: #2a1d14; /* fundo marrom escuro (combina com o tema) */
 }
 
+/* ===== Contador de visitas (rodapé) ===== */
+.visit-counter {
+  margin-top: 0.6rem;
+  opacity: 0.55;
+  text-align: center;
+}
+
+.visit-counter img {
+  height: 18px;
+  filter: sepia(40%) saturate(80%);
+}
+
+.visit-counter:hover {
+  opacity: 0.85;
+}
