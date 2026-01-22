@@ -40,24 +40,4 @@
     document.body.appendChild(s);
   }
 
-  /* --- Contador VISÍVEL no rodapé (badge SVG) --- */
-  const footer = document.querySelector("footer");
-  if (!footer) return;
-  if (document.getElementById("visit-counter")) return;
-
-  const div = document.createElement("div");
-  div.id = "visit-counter";
-  div.className = "visit-counter";
-
-  const img = document.createElement("img");
-  img.src =
-    "https://hits.sh/https%3A%2F%2Fwww.oleitor.info.svg" +
-    "?label=visitas&color=8b6b3f&labelColor=2a1c12";
-  img.alt = "Visitas";
-  img.loading = "lazy";
-
-  div.appendChild(img);
-  footer.appendChild(div);
-
-})();
 
